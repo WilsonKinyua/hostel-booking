@@ -1,13 +1,4 @@
 /***********************************************************
- *
- * Project name: 	Nimoy · Login & Register Form HTML Template
- * Decription: 		HTML | Miscellaneous Template for ThemeForest.net
- * Author: 			ceosDesigns
- * Link:			http://nimoy.ceosdesigns.sk/ 
- * Version:			1.00
- *
- ************************************************************/
- 
 /************************************************************
  *
  * *****************
@@ -27,11 +18,11 @@
  *  	04.01 LOGO
  *  	04.02 FORM INPUTS
  *  	04.03 FORM CHECK
- *  	04.04 BUTTON 
+ *  	04.04 BUTTON
  * 		04.05 SOCIAL
- * 
+ *
  *  05. MEDIA QUERIES
- 
+
  ************************************************************/
 
 /*****************************/
@@ -57,7 +48,7 @@ body {
   	font-weight: 400;
   	line-height: 1.5;
 	color: #1e2022;
-	text-align: left;	
+	text-align: left;
 	background-color: #eeeeff;
 }
 
@@ -246,7 +237,7 @@ li {
 	.divider {
 		position: relative;
 	}
-	
+
 	.divider::before {
 		content: "";
 		position: absolute;
@@ -258,7 +249,7 @@ li {
 		border-top: 1px solid #eeeeff;
 		transform: translateY(calc(-50% + 1px));
 	}
-	
+
 	.divider-content {
 		position: relative;
 		display: inline-block;
@@ -282,10 +273,10 @@ li {
 		border: 0 solid transparent;
 		border-radius: 0.125rem;
 	}
-	
+
 	.card-content {
 		padding: 1.5rem !important;
-	
+
 		-webkit-box-flex: 1;
 		flex: 1 1 auto;
 	}
@@ -326,47 +317,47 @@ li {
 		border-radius: 0.25rem;
 		transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
 	}
-	
+
 	.form-control:focus {
 		background-color: #ffffff;
 		border-color: #007bff;
 		outline: 0;
 		box-shadow: none;
 	}
-	
+
 	.form-control::-webkit-input-placeholder {
 		color: #97a4af;
 		opacity: 1;
 	  }
-	
+
 	.form-control::-moz-placeholder{
 		color: #97a4af;
 		opacity: 1;
 	}
-	
+
 	.form-control:-ms-input-placeholder{
 		color: #97a4af;
 		opacity: 1;
 	}
-	
+
 	.form-control::placeholder{
 		color: #97a4af;
 		opacity: 1;
 	}
-	
+
 	.nm-control {
 		position: relative;
 		display: block;
 		min-height: 1.5rem;
 		padding-left: 1.5rem;
 	}
-	
+
 	.nm-control-input {
 		position: absolute;
 		z-index: -1;
 		opacity: 0;
 	}
-	
+
 	.nm-control-label {
 		font-weight: 400;
 		color: #1e2022;
@@ -389,19 +380,19 @@ li {
 		border-radius: 50% !important;
 		background-color: #fff !important;
 	}
-	
+
 	.content {
 		-webkit-box-flex: 1;
 		flex: 1;
 		margin-top: 0;
 	}
-	
+
 	.content > p {
 		font-size: 0.875rem;
 		font-weight: 600;
 		line-height: 2;
 	}
-	
+
 	.subtitle {
 		margin-bottom: 2rem;
 		font-weight: 600;
@@ -431,7 +422,7 @@ li {
 		background-color: #eeeeff;
 		border: #eeeeff solid 0;
 	}
-	
+
 	.nm-control-label::after {
 		position: absolute;
 		top: 0.25rem;
@@ -442,17 +433,17 @@ li {
 		content: "";
 		background: no-repeat 50% / 50% 50%;
 	}
-	
+
 	.nm-control-input:checked ~ .nm-control-label::before {
 		color: #ffffff;
 		border-color: #007bff;
 		background-color: #007bff;
 	}
-	
+
 	.nm-checkbox .nm-control-input:checked ~ .nm-control-label::after {
 		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
 	}
-	
+
 	.nm-control-label::after {
 		position: absolute;
 		top: 0.25rem;
@@ -488,11 +479,11 @@ li {
 		background-color: #0052ea;
 		border: 1px solid #0052ea;
 	}
-	
+
 	.nm-btn:focus,.nm-btn:active {
 		box-shadow: none;
 	}
-	
+
 	.btn-primary:not(:disabled):not(.disabled):active:focus {
 		box-shadow: none;
 	}
@@ -523,7 +514,7 @@ li {
 		border-color: #293e6a !important;
 	}
 
-	/* TWITTER */ 
+	/* TWITTER */
 	.btn-twitter {
 		color: #fff;
 		background-color: #66c3ff !important;
@@ -536,7 +527,7 @@ li {
 		border-color: #26aaff !important;
 	}
 
-	/* GOOGLE */ 
+	/* GOOGLE */
 	.btn-google {
 		color: #fff;
 		background-color: #e6162d !important;
@@ -549,7 +540,7 @@ li {
 		border-color: #cf1026 !important;
 	}
 
-	/* LINKEDIN */ 
+	/* LINKEDIN */
 	.btn-linkedin {
 		color: #fff;
 		background-color: #0077b5 !important;
@@ -562,7 +553,7 @@ li {
 		border-color: #066192 !important;
 	}
 
-	/* INSTAGRAM */ 
+	/* INSTAGRAM */
 	.btn-instagram {
 		color: #fff;
 		background-color: #304d63 !important;
@@ -575,7 +566,7 @@ li {
 		border-color: #223a4d !important;
 	}
 
-	/* APPLE */ 
+	/* APPLE */
 	.btn-apple {
 		color: #fff;
 		background-color: #111111 !important;
@@ -588,7 +579,7 @@ li {
 		border-color: #000000 !important;
 	}
 
-	/* AMAZON */ 
+	/* AMAZON */
 	.btn-amazon {
 		color: #fff;
 		background-color: #FF9900 !important;
@@ -601,7 +592,7 @@ li {
 		border-color: #df8805 !important;
 	}
 
-	/* YAHOO */ 
+	/* YAHOO */
 	.btn-yahoo {
 		color: #fff;
 		background-color: #720e9e !important;
@@ -618,7 +609,7 @@ li {
 /*  05. MEDIA QUERIES        */
 /*****************************/
 
-@media (min-width: 576px){		
+@media (min-width: 576px){
 	.card-content {
 		padding: 2rem !important;
 	}
