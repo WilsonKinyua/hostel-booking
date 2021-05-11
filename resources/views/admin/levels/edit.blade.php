@@ -10,6 +10,7 @@
         <form method="POST" action="{{ route("admin.levels.update", [$level->id]) }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
+            <input type="hidden" name="created_by_id" value="{{ Auth::user()->id }}">
             <div class="form-group">
                 <label class="required" for="level_name">{{ trans('cruds.level.fields.level_name') }}</label>
                 <input class="form-control {{ $errors->has('level_name') ? 'is-invalid' : '' }}" type="text" name="level_name" id="level_name" value="{{ old('level_name', $level->level_name) }}" required>

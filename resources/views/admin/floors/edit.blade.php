@@ -10,6 +10,7 @@
         <form method="POST" action="{{ route("admin.floors.update", [$floor->id]) }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
+            <input type="hidden" name="created_by_id" value="{{ Auth::user()->id }}">
             <div class="form-group">
                 <label class="required" for="floor_name">{{ trans('cruds.floor.fields.floor_name') }}</label>
                 <input class="form-control {{ $errors->has('floor_name') ? 'is-invalid' : '' }}" type="text" name="floor_name" id="floor_name" value="{{ old('floor_name', $floor->floor_name) }}" required>

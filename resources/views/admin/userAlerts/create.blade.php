@@ -9,6 +9,7 @@
     <div class="card-body">
         <form method="POST" action="{{ route("admin.user-alerts.store") }}" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="created_by_id" value="{{ Auth::user()->id }}">
             <div class="form-group">
                 <label class="required" for="alert_text">{{ trans('cruds.userAlert.fields.alert_text') }}</label>
                 <input class="form-control {{ $errors->has('alert_text') ? 'is-invalid' : '' }}" type="text" name="alert_text" id="alert_text" value="{{ old('alert_text', '') }}" required>

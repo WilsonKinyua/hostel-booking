@@ -9,6 +9,7 @@
     <div class="card-body">
         <form method="POST" action="{{ route("admin.floors.store") }}" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="created_by_id" value="{{ Auth::user()->id }}">
             <div class="form-group">
                 <label class="required" for="floor_name">{{ trans('cruds.floor.fields.floor_name') }}</label>
                 <input class="form-control {{ $errors->has('floor_name') ? 'is-invalid' : '' }}" type="text" name="floor_name" id="floor_name" value="{{ old('floor_name', '') }}" required>

@@ -10,6 +10,7 @@
         <form method="POST" action="{{ route("admin.expenses.update", [$expense->id]) }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
+            <input type="hidden" name="created_by_id" value="{{ Auth::user()->id }}">
             <div class="form-group">
                 <label class="required" for="expense_name">{{ trans('cruds.expense.fields.expense_name') }}</label>
                 <input class="form-control {{ $errors->has('expense_name') ? 'is-invalid' : '' }}" type="text" name="expense_name" id="expense_name" value="{{ old('expense_name', $expense->expense_name) }}" required>

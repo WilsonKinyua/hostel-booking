@@ -9,6 +9,7 @@
     <div class="card-body">
         <form method="POST" action="{{ route("admin.tenants.store") }}" enctype="multipart/form-data">
             @csrf
+            <input type="hidden" name="created_by_id" value="{{ Auth::user()->id }}">
             <div class="form-group">
                 <label class="required" for="first_name">{{ trans('cruds.tenant.fields.first_name') }}</label>
                 <input class="form-control {{ $errors->has('first_name') ? 'is-invalid' : '' }}" type="text" name="first_name" id="first_name" value="{{ old('first_name', '') }}" required>

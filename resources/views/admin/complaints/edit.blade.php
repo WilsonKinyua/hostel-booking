@@ -10,6 +10,7 @@
         <form method="POST" action="{{ route("admin.complaints.update", [$complaint->id]) }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
+            <input type="hidden" name="created_by_id" value="{{ Auth::user()->id }}">
             <div class="form-group">
                 <label class="required" for="complaint_title">{{ trans('cruds.complaint.fields.complaint_title') }}</label>
                 <input class="form-control {{ $errors->has('complaint_title') ? 'is-invalid' : '' }}" type="text" name="complaint_title" id="complaint_title" value="{{ old('complaint_title', $complaint->complaint_title) }}" required>

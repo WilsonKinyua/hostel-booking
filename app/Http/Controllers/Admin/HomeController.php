@@ -393,12 +393,12 @@ class HomeController
             'fields'                => [
                 'name'              => '',
                 'email'             => '',
-                'email_verified_at' => '',
+                // 'email_verified_at' => '',
                 'roles'             => 'title',
                 'created_at'        => '',
-                'verified_at'       => '',
+                // 'verified_at'       => '',
                 'gender'            => '',
-                'profile_picture'   => '',
+                // 'profile_picture'   => '',
             ],
             'translation_key' => 'user',
         ];

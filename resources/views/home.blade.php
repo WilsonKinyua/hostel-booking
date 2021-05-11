@@ -4,8 +4,8 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="card">
-                <div class="card-header">
-                    Dashboard
+                <div class="card-header text-bold text-success">
+                    <h4>Hello! Welcome Back, <span class="badge badge-primary">{{ Auth::user()->name }}</span></h4>
                 </div>
 
                 <div class="card-body">
@@ -16,11 +16,123 @@
                     @endif
 
                     <div class="row">
+                        <div class="{{ $settings4['column_class'] }}">
+                            <div class="info-box bg-danger">
+                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
+                                    <i class="fa-fw nav-icon fas fa-users"></i>
+                                </span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{ $settings4['chart_title'] }}</span>
+                                    <span class="info-box-number">{{ number_format($settings4['total_number']) }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <div class="{{ $settings5['column_class'] }}">
+                            <div class="info-box bg-success">
+                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
+                                    <i class="fas fa-concierge-bell"></i>
+                                </span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{ $settings5['chart_title'] }}</span>
+                                    <span class="info-box-number">{{ number_format($settings5['total_number']) }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <div class="{{ $settings6['column_class'] }}">
+                            <div class="info-box bg-primary">
+                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
+                                    <i class="fas fa-book-open"></i>
+                                </span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{ $settings6['chart_title'] }}</span>
+                                    <span class="info-box-number">{{ number_format($settings6['total_number']) }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <div class="{{ $settings7['column_class'] }}">
+                            <div class="info-box bg-info">
+                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
+                                    <i class="fas fa-users"></i>
+                                </span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{ $settings7['chart_title'] }}</span>
+                                    <span class="info-box-number">{{ number_format($settings7['total_number']) }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <div class="{{ $settings8['column_class'] }}">
+                            <div class="info-box bg-danger">
+                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
+                                    <i class="fa fa-chart-line"></i>
+                                </span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{ $settings8['chart_title'] }}</span>
+                                    <span class="info-box-number">Ksh {{ number_format($settings8['total_number']) }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <div class="{{ $settings9['column_class'] }}">
+                            <div class="info-box bg-success">
+                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
+                                    <i class="fas fa-list"></i>
+                                </span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{ $settings9['chart_title'] }}</span>
+                                    <span class="info-box-number">{{ number_format($settings9['total_number']) }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <div class="{{ $settings10['column_class'] }}">
+                            <div class="info-box bg-primary">
+                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
+                                    <i class="fas fa-pen"></i>
+                                </span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{ $settings10['chart_title'] }}</span>
+                                    <span class="info-box-number">{{ number_format($settings10['total_number']) }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
+                        <div class="{{ $settings11['column_class'] }}">
+                            <div class="info-box bg-info">
+                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
+                                    <i class="fa fa-chart-line"></i>
+                                </span>
+
+                                <div class="info-box-content">
+                                    <span class="info-box-text">{{ $settings11['chart_title'] }}</span>
+                                    <span class="info-box-number">Ksh {{ number_format($settings11['total_number']) }}</span>
+                                </div>
+                                <!-- /.info-box-content -->
+                            </div>
+                            <!-- /.info-box -->
+                        </div>
                         {{-- Widget - latest entries --}}
                         <div class="{{ $settings1['column_class'] }}" style="overflow-x: auto;">
                             <h3>{{ $settings1['chart_title'] }}</h3>
                             <table class="table table-bordered table-striped">
-                                <thead>
+                                <thead class="bg-primary">
                                     <tr>
                                         @foreach($settings1['fields'] as $key => $value)
                                             <th>
@@ -63,123 +175,12 @@
                             <h3>{!! $chart3->options['chart_title'] !!}</h3>
                             {!! $chart3->renderHtml() !!}
                         </div>
-                        <div class="{{ $settings4['column_class'] }}">
-                            <div class="info-box">
-                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
-                                    <i class="fa fa-chart-line"></i>
-                                </span>
 
-                                <div class="info-box-content">
-                                    <span class="info-box-text">{{ $settings4['chart_title'] }}</span>
-                                    <span class="info-box-number">{{ number_format($settings4['total_number']) }}</span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <div class="{{ $settings5['column_class'] }}">
-                            <div class="info-box">
-                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
-                                    <i class="fa fa-chart-line"></i>
-                                </span>
-
-                                <div class="info-box-content">
-                                    <span class="info-box-text">{{ $settings5['chart_title'] }}</span>
-                                    <span class="info-box-number">{{ number_format($settings5['total_number']) }}</span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <div class="{{ $settings6['column_class'] }}">
-                            <div class="info-box">
-                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
-                                    <i class="fa fa-chart-line"></i>
-                                </span>
-
-                                <div class="info-box-content">
-                                    <span class="info-box-text">{{ $settings6['chart_title'] }}</span>
-                                    <span class="info-box-number">{{ number_format($settings6['total_number']) }}</span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <div class="{{ $settings7['column_class'] }}">
-                            <div class="info-box">
-                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
-                                    <i class="fa fa-chart-line"></i>
-                                </span>
-
-                                <div class="info-box-content">
-                                    <span class="info-box-text">{{ $settings7['chart_title'] }}</span>
-                                    <span class="info-box-number">{{ number_format($settings7['total_number']) }}</span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <div class="{{ $settings8['column_class'] }}">
-                            <div class="info-box">
-                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
-                                    <i class="fa fa-chart-line"></i>
-                                </span>
-
-                                <div class="info-box-content">
-                                    <span class="info-box-text">{{ $settings8['chart_title'] }}</span>
-                                    <span class="info-box-number">{{ number_format($settings8['total_number']) }}</span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <div class="{{ $settings9['column_class'] }}">
-                            <div class="info-box">
-                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
-                                    <i class="fa fa-chart-line"></i>
-                                </span>
-
-                                <div class="info-box-content">
-                                    <span class="info-box-text">{{ $settings9['chart_title'] }}</span>
-                                    <span class="info-box-number">{{ number_format($settings9['total_number']) }}</span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <div class="{{ $settings10['column_class'] }}">
-                            <div class="info-box">
-                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
-                                    <i class="fa fa-chart-line"></i>
-                                </span>
-
-                                <div class="info-box-content">
-                                    <span class="info-box-text">{{ $settings10['chart_title'] }}</span>
-                                    <span class="info-box-number">{{ number_format($settings10['total_number']) }}</span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
-                        <div class="{{ $settings11['column_class'] }}">
-                            <div class="info-box">
-                                <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
-                                    <i class="fa fa-chart-line"></i>
-                                </span>
-
-                                <div class="info-box-content">
-                                    <span class="info-box-text">{{ $settings11['chart_title'] }}</span>
-                                    <span class="info-box-number">{{ number_format($settings11['total_number']) }}</span>
-                                </div>
-                                <!-- /.info-box-content -->
-                            </div>
-                            <!-- /.info-box -->
-                        </div>
                         {{-- Widget - latest entries --}}
                         <div class="{{ $settings12['column_class'] }}" style="overflow-x: auto;">
                             <h3>{{ $settings12['chart_title'] }}</h3>
                             <table class="table table-bordered table-striped">
-                                <thead>
+                                <thead class="bg-info">
                                     <tr>
                                         @foreach($settings12['fields'] as $key => $value)
                                             <th>
@@ -197,7 +198,7 @@
                                                         {{ $entry->{$key} }}
                                                     @elseif(is_iterable($entry->{$key}))
                                                         @foreach($entry->{$key} as $subEentry)
-                                                            <span class="label label-info">{{ $subEentry->{$value} }}</span>
+                                                            <span class="badge badge-info">{{ $subEentry->{$value} }}</span>
                                                         @endforeach
                                                     @else
                                                         {{ data_get($entry, $key . '.' . $value) }}
