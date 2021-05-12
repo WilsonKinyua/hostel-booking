@@ -35,15 +35,15 @@
                         <th>
                             {{ trans('cruds.tenant.fields.middle_name') }}
                         </th>
-                        <th>
+                        {{-- <th>
                             {{ trans('cruds.tenant.fields.last_name') }}
-                        </th>
+                        </th> --}}
                         <th>
                             {{ trans('cruds.tenant.fields.gender') }}
                         </th>
-                        <th>
+                        {{-- <th>
                             {{ trans('cruds.tenant.fields.department') }}
-                        </th>
+                        </th> --}}
                         <th>
                             {{ trans('cruds.tenant.fields.phone') }}
                         </th>
@@ -53,7 +53,7 @@
                         <th>
                             {{ trans('cruds.tenant.fields.tenant_image') }}
                         </th>
-                        <th>
+                        {{-- <th>
                             {{ trans('cruds.tenant.fields.id_type') }}
                         </th>
                         <th>
@@ -61,30 +61,33 @@
                         </th>
                         <th>
                             {{ trans('cruds.tenant.fields.tenant_id_image') }}
-                        </th>
-                        <th>
+                        </th> --}}
+                        {{-- <th>
                             {{ trans('cruds.tenant.fields.home_address_line_1') }}
                         </th>
                         <th>
                             {{ trans('cruds.tenant.fields.home_address_line_2') }}
-                        </th>
+                        </th> --}}
                         <th>
                             {{ trans('cruds.tenant.fields.emergency_person_name') }}
                         </th>
-                        <th>
+                        {{-- <th>
                             {{ trans('cruds.tenant.fields.emergency_person_phone_number_1') }}
                         </th>
                         <th>
                             {{ trans('cruds.tenant.fields.emergency_person_phone_number_2') }}
-                        </th>
+                        </th> --}}
                         <th>
                             {{ trans('cruds.tenant.fields.room') }}
                         </th>
                         <th>
                             {{ trans('cruds.tenant.fields.status') }}
                         </th>
-                        <th>
+                        {{-- <th>
                             {{ trans('cruds.tenant.fields.extra_note') }}
+                        </th> --}}
+                        <th>
+                            Created On
                         </th>
                         <th>
                             &nbsp;
@@ -106,15 +109,15 @@
                             <td>
                                 {{ $tenant->middle_name ?? '' }}
                             </td>
-                            <td>
+                            {{-- <td>
                                 {{ $tenant->last_name ?? '' }}
-                            </td>
+                            </td> --}}
                             <td>
                                 {{ App\Models\Tenant::GENDER_RADIO[$tenant->gender] ?? '' }}
                             </td>
-                            <td>
+                            {{-- <td>
                                 {{ $tenant->department ?? '' }}
-                            </td>
+                            </td> --}}
                             <td>
                                 {{ $tenant->phone ?? '' }}
                             </td>
@@ -128,7 +131,7 @@
                                     </a>
                                 @endif
                             </td>
-                            <td>
+                            {{-- <td>
                                 {{ App\Models\Tenant::ID_TYPE_SELECT[$tenant->id_type] ?? '' }}
                             </td>
                             <td>
@@ -146,25 +149,29 @@
                             </td>
                             <td>
                                 {{ $tenant->home_address_line_2 ?? '' }}
-                            </td>
+                            </td> --}}
                             <td>
                                 {{ $tenant->emergency_person_name ?? '' }}
                             </td>
-                            <td>
+                            {{-- <td>
                                 {{ $tenant->emergency_person_phone_number_1 ?? '' }}
                             </td>
                             <td>
                                 {{ $tenant->emergency_person_phone_number_2 ?? '' }}
-                            </td>
+                            </td> --}}
                             <td>
                                 {{ $tenant->room->number ?? '' }}
                             </td>
                             <td>
-                                {{ App\Models\Tenant::STATUS_SELECT[$tenant->status] ?? '' }}
+                                {{ $tenant->created_at->diffForHumans() ?? '' }}
                             </td>
                             <td>
-                                {{ $tenant->extra_note ?? '' }}
+                                <spna class="badge badge-danger">{{ App\Models\Tenant::STATUS_SELECT[$tenant->status] ?? '' }}</spna>
                             </td>
+                            {{-- <td>
+                                {{ $tenant->extra_note ?? '' }}
+                            </td> --}}
+                            
                             <td>
                                 @can('tenant_show')
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.tenants.show', $tenant->id) }}">
@@ -247,7 +254,7 @@
   $('div#sidebar').on('transitionend', function(e) {
     $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
   })
-  
+
 })
 
 </script>

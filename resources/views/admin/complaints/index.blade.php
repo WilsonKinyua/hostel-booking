@@ -35,6 +35,9 @@
                             {{ trans('cruds.complaint.fields.files_videos') }}
                         </th>
                         <th>
+                            Created By
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -56,10 +59,13 @@
                             </td>
                             <td>
                                 @foreach($complaint->files_videos as $key => $media)
-                                    <a href="{{ $media->getUrl() }}" target="_blank">
+                                    <a class="btn btn-primary" href="{{ $media->getUrl() }}" target="_blank">
                                         {{ trans('global.view_file') }}
                                     </a>
                                 @endforeach
+                            </td>
+                            <td>
+                                {{ $complaint->created_by->name }}
                             </td>
                             <td>
                                 @can('complaint_show')
@@ -143,7 +149,7 @@
   $('div#sidebar').on('transitionend', function(e) {
     $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
   })
-  
+
 })
 
 </script>

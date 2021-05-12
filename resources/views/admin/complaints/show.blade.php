@@ -9,7 +9,7 @@
     <div class="card-body">
         <div class="form-group">
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.complaints.index') }}">
+                <a class="btn btn-primary" href="{{ route('admin.complaints.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>
@@ -45,7 +45,7 @@
                         </th>
                         <td>
                             @foreach($complaint->files_videos as $key => $media)
-                                <a href="{{ $media->getUrl() }}" target="_blank">
+                                <a class="btn btn-primary" href="{{ $media->getUrl() }}" target="_blank">
                                     {{ trans('global.view_file') }}
                                 </a>
                             @endforeach
@@ -54,7 +54,7 @@
                 </tbody>
             </table>
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.complaints.index') }}">
+                <a class="btn btn-primary" href="{{ route('admin.complaints.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>

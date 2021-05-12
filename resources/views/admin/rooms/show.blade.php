@@ -9,7 +9,7 @@
     <div class="card-body">
         <div class="form-group">
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.rooms.index') }}">
+                <a class="btn btn-primary" href="{{ route('admin.rooms.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>
@@ -36,7 +36,11 @@
                             {{ trans('cruds.room.fields.status') }}
                         </th>
                         <td>
-                            {{ $room->status }}
+                            @if ($room->status == 0)
+                                <span class="badge badge-danger">Not Occupied</span>
+                            @else
+                                <span class="badge badge-info">Occupied</span>
+                            @endif
                         </td>
                     </tr>
                     <tr>
@@ -66,7 +70,7 @@
                 </tbody>
             </table>
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.rooms.index') }}">
+                <a class="btn btn-primary" href="{{ route('admin.rooms.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>

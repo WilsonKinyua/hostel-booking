@@ -62,7 +62,11 @@
                                 {{ $room->number ?? '' }}
                             </td>
                             <td>
-                                {{ $room->status ?? '' }}
+                                @if ($room->status == 0)
+                                    <span class="badge badge-danger">Not Occupied</span>
+                                @else
+                                <span class="badge badge-info">Occupied</span>
+                                @endif
                             </td>
                             <td>
                                 {{ $room->floor->floor_name ?? '' }}
@@ -155,7 +159,7 @@
   $('div#sidebar').on('transitionend', function(e) {
     $($.fn.dataTable.tables(true)).DataTable().columns.adjust();
   })
-  
+
 })
 
 </script>

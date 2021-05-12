@@ -9,7 +9,7 @@
     <div class="card-body">
         <div class="form-group">
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.roles.index') }}">
+                <a class="btn btn-primary" href="{{ route('admin.roles.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>
@@ -44,7 +44,7 @@
                 </tbody>
             </table>
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.roles.index') }}">
+                <a class="btn btn-primary" href="{{ route('admin.roles.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>

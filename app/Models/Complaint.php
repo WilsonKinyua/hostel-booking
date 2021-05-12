@@ -15,7 +15,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 class Complaint extends Model implements HasMedia
 {
     use SoftDeletes;
-    use MultiTenantModelTrait;
+    // use MultiTenantModelTrait;
     use InteractsWithMedia;
     use Auditable;
     use HasFactory;

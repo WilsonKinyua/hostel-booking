@@ -39,7 +39,7 @@
 
                             </i>
                             <p>
-                                {{ trans('cruds.manageRoom.title') }}
+                                Rooms
                                 <i class="right fa fa-fw fa-angle-left nav-icon"></i>
                             </p>
                         </a>
@@ -95,7 +95,7 @@
                         </a>
                     </li>
                 @endcan
-                @can('about_us_access')
+                {{-- @can('about_us_access')
                     <li class="nav-item">
                         <a href="{{ route("admin.aboutuses.index") }}" class="nav-link {{ request()->is("admin/aboutuses") || request()->is("admin/aboutuses/*") ? "active" : "" }}">
                             <i class="fa-fw nav-icon fas fa-clipboard-list">
@@ -106,7 +106,7 @@
                             </p>
                         </a>
                     </li>
-                @endcan
+                @endcan --}}
                 @can('accounting_access')
                     <li class="nav-item has-treeview {{ request()->is("admin/expenses*") ? "menu-open" : "" }} {{ request()->is("admin/payments*") ? "menu-open" : "" }}">
                         <a class="nav-link nav-dropdown-toggle" href="#">

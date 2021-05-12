@@ -20,7 +20,11 @@
             </div>
             <div class="form-group">
                 <label for="status">{{ trans('cruds.room.fields.status') }}</label>
-                <input class="form-control {{ $errors->has('status') ? 'is-invalid' : '' }}" type="number" name="status" id="status" value="{{ old('status', '0') }}" step="1">
+                <select name="status" id="" class="form-control">
+                    <option value="0" selected>Select Option</option>
+                    <option value="1">Occupied</option>
+                    <option value="0">Not Occupied</option>
+                </select>
                 @if($errors->has('status'))
                     <span class="text-danger">{{ $errors->first('status') }}</span>
                 @endif
