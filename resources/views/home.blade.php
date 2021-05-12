@@ -16,6 +16,7 @@
                     @endif
 
                     <div class="row">
+                        @if (Auth::user()->id == 1)
                         <div class="{{ $settings4['column_class'] }}">
                             <div class="info-box bg-danger">
                                 <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
@@ -30,6 +31,8 @@
                             </div>
                             <!-- /.info-box -->
                         </div>
+                        @endif
+
                         <div class="{{ $settings5['column_class'] }}">
                             <div class="info-box bg-success">
                                 <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
@@ -72,6 +75,7 @@
                             </div>
                             <!-- /.info-box -->
                         </div>
+                        @if (Auth::user()->id == 1)
                         <div class="{{ $settings8['column_class'] }}">
                             <div class="info-box bg-danger">
                                 <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
@@ -86,6 +90,7 @@
                             </div>
                             <!-- /.info-box -->
                         </div>
+
                         <div class="{{ $settings9['column_class'] }}">
                             <div class="info-box bg-success">
                                 <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
@@ -100,6 +105,7 @@
                             </div>
                             <!-- /.info-box -->
                         </div>
+                        @endif
                         <div class="{{ $settings10['column_class'] }}">
                             <div class="info-box bg-primary">
                                 <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
@@ -114,6 +120,7 @@
                             </div>
                             <!-- /.info-box -->
                         </div>
+                        @if (Auth::user()->id == 1)
                         <div class="{{ $settings11['column_class'] }}">
                             <div class="info-box bg-info">
                                 <span class="info-box-icon bg-red" style="display:flex; flex-direction: column; justify-content: center;">
@@ -128,6 +135,7 @@
                             </div>
                             <!-- /.info-box -->
                         </div>
+
                         {{-- Widget - latest entries --}}
                         <div class="{{ $settings1['column_class'] }}" style="overflow-x: auto;">
                             <h3>{{ $settings1['chart_title'] }}</h3>
@@ -214,8 +222,26 @@
                                 </tbody>
                             </table>
                         </div>
+                        @endif
+
 
                     </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            Calendar
+        </div>
+        <div class=" card-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
+
+                    <div id='calendar'></div>
                 </div>
             </div>
         </div>
@@ -225,4 +251,18 @@
 @section('scripts')
 @parent
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>{!! $chart2->renderJs() !!}{!! $chart3->renderJs() !!}
+<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
+<script>
+    $(document).ready(function () {
+            // page is now ready, initialize the calendar...
+            events={!! json_encode($events) !!};
+            $('#calendar').fullCalendar({
+                // put your options and callbacks here
+                events: events,
+
+
+            })
+        });
+</script>
 @endsection

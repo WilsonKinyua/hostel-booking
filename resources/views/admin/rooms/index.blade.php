@@ -45,6 +45,9 @@
                             {{ trans('cruds.room.fields.details') }}
                         </th>
                         <th>
+                            Action
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -76,6 +79,11 @@
                             </td>
                             <td>
                                 {{ $room->details ?? '' }}
+                            </td>
+                            <td>
+                                @if ($room->status == 0)
+                                    <a href="{{ route('admin.tenants.create') }}" class="btn btn-info">Book Room</a>
+                                @endif
                             </td>
                             <td>
                                 @can('room_show')

@@ -33,7 +33,7 @@ class TenantsController extends Controller
     {
         abort_if(Gate::denies('tenant_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $rooms = Room::all()->pluck('number', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $rooms = Room::where('status' ,"!=", 1)->pluck('number', 'id')->prepend(trans('global.pleaseSelect'), '');
 
         return view('admin.tenants.create', compact('rooms'));
     }

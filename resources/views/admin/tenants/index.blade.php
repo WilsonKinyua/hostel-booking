@@ -1,5 +1,6 @@
 @extends('layouts.admin')
 @section('content')
+@if (Auth::user()->id == 0)
 @can('tenant_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
@@ -13,9 +14,14 @@
         </div>
     </div>
 @endcan
+@endif
 <div class="card">
     <div class="card-header">
+        @if (Auth::user()->id == 1)
         {{ trans('cruds.tenant.title_singular') }} {{ trans('global.list') }}
+        @else
+        Tenant Details
+        @endif
     </div>
 
     <div class="card-body">
@@ -171,7 +177,7 @@
                             {{-- <td>
                                 {{ $tenant->extra_note ?? '' }}
                             </td> --}}
-                            
+
                             <td>
                                 @can('tenant_show')
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.tenants.show', $tenant->id) }}">

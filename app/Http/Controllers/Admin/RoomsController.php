@@ -21,7 +21,7 @@ class RoomsController extends Controller
     {
         abort_if(Gate::denies('room_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $rooms = Room::with(['floor', 'created_by'])->get();
+        $rooms = Room::with(['floor'])->get();
 
         return view('admin.rooms.index', compact('rooms'));
     }

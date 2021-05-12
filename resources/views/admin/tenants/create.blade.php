@@ -162,6 +162,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.tenant.fields.room_helper') }}</span>
             </div>
+            @if (Auth::user()->id == 1)
             <div class="form-group">
                 <label class="required">{{ trans('cruds.tenant.fields.status') }}</label>
                 <select class="form-control {{ $errors->has('status') ? 'is-invalid' : '' }}" name="status" id="status" required>
@@ -175,6 +176,9 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.tenant.fields.status_helper') }}</span>
             </div>
+            @else
+                <input type="hidden" name="status" value="Inactive">
+            @endif
             <div class="form-group">
                 <label for="extra_note">{{ trans('cruds.tenant.fields.extra_note') }}</label>
                 <textarea class="form-control {{ $errors->has('extra_note') ? 'is-invalid' : '' }}" name="extra_note" id="extra_note">{{ old('extra_note') }}</textarea>

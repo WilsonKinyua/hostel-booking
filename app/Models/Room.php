@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Room extends Model
 {
     use SoftDeletes;
-    use MultiTenantModelTrait;
+    // use MultiTenantModelTrait;
     use Auditable;
     use HasFactory;
 

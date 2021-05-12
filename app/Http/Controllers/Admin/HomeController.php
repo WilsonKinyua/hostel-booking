@@ -6,8 +6,52 @@ use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 
 class HomeController
 {
+    public $sources = [
+        [
+            'model'      => '\App\Models\Complaint',
+            'date_field' => 'created_at',
+            'field'      => 'complaint_title',
+            'prefix'     => 'Complain',
+            'suffix'     => '',
+            'route'      => 'admin.complaints.edit',
+        ],
+        [
+            'model'      => '\App\Models\Expense',
+            'date_field' => 'created_at',
+            'field'      => 'id',
+            'prefix'     => 'New Expense',
+            'suffix'     => '',
+            'route'      => 'admin.expenses.edit',
+        ],
+        [
+            'model'      => '\App\Models\Payment',
+            'date_field' => 'created_at',
+            'field'      => 'id',
+            'prefix'     => 'New Payment',
+            'suffix'     => '',
+            'route'      => 'admin.payments.edit',
+        ],
+    ];
+
     public function index()
     {
+        $events = [];
+        foreach ($this->sources as $source) {
+            foreach ($source['model']::all() as $model) {
+                $crudFieldValue = $model->getAttributes()[$source['date_field']];
+
+                if (!$crudFieldValue) {
+                    continue;
+                }
+
+                $events[] = [
+                    'title' => trim($source['prefix'] . ' ' . $model->{$source['field']} . ' ' . $source['suffix']),
+                    'start' => $crudFieldValue,
+                    // 'url'   => route($source['route'], $model->id),
+                ];
+            }
+        }
+
         $settings1 = [
             'chart_title'           => 'Latest Tenants',
             'chart_type'            => 'latest_entries',
@@ -414,6 +458,7 @@ class HomeController
             $settings12['fields'] = [];
         }
 
-        return view('home', compact('settings1', 'chart2', 'chart3', 'settings4', 'settings5', 'settings6', 'settings7', 'settings8', 'settings9', 'settings10', 'settings11', 'settings12'));
+
+        return view('home', compact('settings1', 'events', 'chart2', 'chart3', 'settings4', 'settings5', 'settings6', 'settings7', 'settings8', 'settings9', 'settings10', 'settings11', 'settings12'));
     }
 }
