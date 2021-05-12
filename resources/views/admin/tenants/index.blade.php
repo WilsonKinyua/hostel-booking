@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-@if (Auth::user()->id == 0)
+@if (Auth::user()->id == 1)
 @can('tenant_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
